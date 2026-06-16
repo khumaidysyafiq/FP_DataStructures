@@ -8,7 +8,6 @@
 // View:    open engine/index.html, select the question/map, drag output.txt, click Play/Run.
 
 #include "harness.h"
-// Tambahkan include yang kalian butuhkan, contoh:
 #include <queue>
 #include <set>
 
@@ -40,15 +39,15 @@ while (!q.empty()) {
     int nr = r + dr[k];
     int nc = c + dc[k];
 
-    if (!inBounds(nr, nc)) continue;      // di luar grid
-    if (isWall(grid[nr][nc])) continue;   // tembok
+    if (!inBounds(nr, nc)) continue;
+    if (isWall(grid[nr][nc])) continue;
 
     Cell neighbor = {nr, nc};
-    if (seen.count(neighbor)) continue;   // sudah dikunjungi
+    if (seen.count(neighbor)) continue;
 
     seen.insert(neighbor);
-    came_from[neighbor] = current;        // rekam parent — WAJIB untuk rekonstruksi path
-    q.push(neighbor);                     // masuk antrian
+    came_from[neighbor] = current;
+    q.push(neighbor);
   }
 }
   return visited;
